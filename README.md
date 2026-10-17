@@ -1,66 +1,160 @@
-# AI Resume Analyzer 🚀
+# 🤖 AI Resume Analyzer
 
-An AI-powered resume analysis web application built with **Python, Django, and Google Gemini API**. Upload a resume in PDF or DOCX format to evaluate its quality, review key skills, identify strengths and weaknesses, and receive actionable suggestions to improve resume content and ATS compatibility.
+An AI-powered Resume Analyzer built using **Python, Django, Google Gemini API, HTML, CSS, and JavaScript**. The application analyzes uploaded resumes, evaluates resume quality and ATS readiness, identifies skills, highlights strengths and weaknesses, and provides AI-generated recommendations to help job seekers improve their resumes.
 
-## 🌐 Live Demo
-
-- **Live Application:** `https://ai-resume-analyzer-x0o4.onrender.com/`
-- **GitHub Repository:** https://github.com/Mathan495/AI-Resume-Analyzer
+---
 
 ## 📌 Project Overview
 
-AI Resume Analyzer helps job seekers understand how effectively their resumes communicate their qualifications. It extracts resume text, processes it using Google's Gemini AI, and presents structured feedback through an interactive dashboard.
+AI Resume Analyzer is a full-stack web application designed to help job seekers understand and improve their resumes through artificial intelligence.
 
-The application is designed to help users identify improvement areas and better align their resumes with job application expectations.
+Users can upload a resume in PDF or DOCX format. The application extracts the text, processes it using Google's Gemini API, and displays structured feedback through an interactive dashboard.
 
-## ✨ Features
+The project demonstrates the integration of AI services with Django web development, document processing, and dynamic frontend rendering.
 
-- **Resume Upload:** Upload resumes in PDF and DOCX formats.
-- **AI-Powered Analysis:** Use Google Gemini API to analyze extracted resume content.
-- **Resume Scoring:** Display an overall resume score.
-- **ATS Compatibility Score:** Provide an indicative ATS-readiness score.
-- **Skills Analysis:** Identify technical and soft skills.
-- **Strengths and Weaknesses:** Highlight positive aspects and areas that need improvement.
-- **Role Recommendations:** Suggest potential job roles based on resume content.
-- **Improvement Suggestions:** Provide actionable recommendations for improving resume quality.
-- **Interactive Dashboard:** Display analysis results in a structured, user-friendly interface.
-- **Responsive UI:** Provide a modern interface for different screen sizes.
+---
+
+## 🚀 Features
+
+### 📄 Resume Upload and Processing
+
+- Upload resumes in PDF and DOCX formats.
+- Validate supported file formats.
+- Restrict uploaded file size.
+- Extract readable text from uploaded documents.
+- Process extracted content for AI analysis.
+
+### 🤖 AI-Powered Resume Analysis
+
+- Analyze resume content using Google Gemini API.
+- Generate an overall resume score.
+- Provide an indicative ATS-readiness score.
+- Identify technical and soft skills.
+- Highlight resume strengths and weaknesses.
+- Recommend relevant job roles based on resume content.
+- Generate actionable resume improvement suggestions.
+
+### 📊 Analysis Dashboard
+
+- Display resume and ATS scores.
+- Present an AI-generated resume summary.
+- Show identified skills and qualifications.
+- Display strengths and areas for improvement.
+- Present recommended job roles.
+- Show suggestions in a structured dashboard.
+
+### 🎨 User Interface
+
+- Modern dark-themed interface.
+- Responsive page layout.
+- Interactive JavaScript components.
+- Dynamic display of analysis results.
+- Clear presentation of resume insights.
+
+### 🔐 Configuration and Security
+
+- Store API credentials in environment variables.
+- Keep secret configuration out of public repositories.
+- Validate uploaded documents on the backend.
+- Configure Django for local development and production deployment.
+
+---
+
+## 🔄 Application Workflow
+
+```text
+        User
+         |
+         v
+  Upload Resume
+   (PDF / DOCX)
+         |
+         v
+  Django Backend
+         |
+         v
+  File Validation
+         |
+         v
+  Resume Text Extraction
+   (PyPDF / python-docx)
+         |
+         v
+   Google Gemini API
+         |
+         v
+  AI Resume Evaluation
+         |
+         v
+  Structured Analysis
+         |
+         v
+ Interactive Dashboard
+         |
+         v
+ Scores, Skills, Strengths,
+ Weaknesses, Role Suggestions
+ and Improvement Tips
+```
+
+---
 
 ## 🛠️ Tech Stack
 
-| Technology | Purpose |
-|---|---|
-| Python | Backend programming |
-| Django | Web framework and application logic |
-| HTML5 | Page structure |
-| CSS3 | Styling and responsive design |
-| JavaScript | Client-side interactions and dynamic results |
-| Google Gemini API | AI-powered resume analysis |
-| PyPDF | PDF text extraction |
-| python-docx | DOCX text extraction |
-| SQLite | Local development database |
-| Git and GitHub | Version control and source code hosting |
-| Render | Application deployment |
+### Frontend
 
-## 🏗️ Application Workflow
+- HTML5
+- CSS3
+- JavaScript
 
-1. The user uploads a resume in PDF or DOCX format.
-2. Django validates the uploaded file and its size.
-3. The resume parser extracts text from the document.
-4. The extracted content is sent to the Gemini API for analysis.
-5. The AI-generated response is processed into structured results.
-6. JavaScript displays the scores, skills, strengths, weaknesses, role suggestions, and improvement recommendations.
+### Backend
+
+- Python
+- Django
+
+### Artificial Intelligence
+
+- Google Gemini API
+- `google-genai` Python SDK
+
+### Document Processing
+
+- PyPDF
+- python-docx
+
+### Database
+
+- SQLite
+
+### Environment Configuration
+
+- python-dotenv
+
+### Deployment
+
+- Render
+- Gunicorn
+- WhiteNoise
+
+### Version Control
+
+- Git
+- GitHub
+
+---
 
 ## 📂 Project Structure
 
 ```text
 AI-Resume-Analyzer/
+│
 ├── analyzer_setting/
 │   ├── __init__.py
 │   ├── settings.py
 │   ├── urls.py
 │   ├── asgi.py
 │   └── wsgi.py
+│
 ├── resume_analyze/
 │   ├── migrations/
 │   ├── static/
@@ -72,144 +166,197 @@ AI-Resume-Analyzer/
 │   │   └── index.html
 │   ├── admin.py
 │   ├── apps.py
-│   ├── gemini_service.py
 │   ├── models.py
-│   ├── resume_parser.py
+│   ├── tests.py
 │   ├── urls.py
-│   └── views.py
+│   ├── views.py
+│   ├── gemini_service.py
+│   └── resume_parser.py
+│
 ├── .gitignore
 ├── manage.py
 ├── requirements.txt
 ├── runtime.txt
-└── README.md
+├── README.md
+└── .env  (local only; do not upload)
 ```
+
+---
 
 ## ⚙️ Installation and Setup
 
-### Prerequisites
-
-Install the following before running the project:
-
-- Python 3.12 or another version compatible with the dependencies
-- Git
-- A Google Gemini API key from [Google AI Studio](https://aistudio.google.com/)
-
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/Mathan495/AI-Resume-Analyzer.git
+```
+
+### 2. Navigate to the Project Directory
+
+```bash
 cd AI-Resume-Analyzer
 ```
 
-### 2. Create and activate a virtual environment
+### 3. Create a Virtual Environment
+
+**Windows:**
+
+```bash
+python -m venv env
+```
+
+### 4. Activate the Virtual Environment
 
 **Windows PowerShell:**
 
 ```powershell
-python -m venv env
 .\env\Scripts\Activate.ps1
 ```
 
-If PowerShell blocks activation, you can run the environment's Python executable directly or follow the appropriate Windows execution-policy guidance.
-
-### 3. Install dependencies
+### 5. Install Dependencies
 
 ```bash
 python -m pip install -r requirements.txt
 ```
 
-### 4. Configure environment variables
+### 6. Configure Environment Variables
 
-Create a `.env` file in the same directory as `manage.py`:
+Create a `.env` file in the same directory as `manage.py`.
+
+Add your Gemini API key:
 
 ```dotenv
 GEMINI_API_KEY=your_gemini_api_key
 ```
 
-Keep the actual API key private. Do not commit `.env` to GitHub.
+Get your API key from [Google AI Studio](https://aistudio.google.com/).
 
-Ensure `settings.py` loads environment variables and that `gemini_service.py` reads `GEMINI_API_KEY` from the environment.
+**Important:** Replace the placeholder with your own key. Never upload the actual `.env` file or API key to GitHub.
 
-### 5. Apply database migrations
+Ensure the Django application loads the environment variables and that the Gemini service reads `GEMINI_API_KEY` from the environment.
+
+### 7. Apply Database Migrations
 
 ```bash
 python manage.py migrate
 ```
 
-### 6. Start the development server
+### 8. Run the Development Server
 
 ```bash
 python manage.py runserver
 ```
 
-Open the application at:
+### 9. Open the Application
+
+Visit the following address in your browser:
 
 http://127.0.0.1:8000/
 
-## 🔐 Security
+---
+
+## 🧠 AI Analysis Results
+
+The application is designed to display the following information after a successful resume analysis:
+
+| Result | Description |
+|---|---|
+| Resume Score | Indicative assessment of overall resume quality |
+| ATS Score | Indicative assessment of ATS readiness |
+| Resume Summary | AI-generated summary of the candidate's profile |
+| Technical Skills | Technical skills identified in the resume |
+| Soft Skills | Communication, teamwork, and other interpersonal skills identified in the resume |
+| Strengths | Positive aspects of the resume |
+| Weaknesses | Areas that may need improvement |
+| Recommended Roles | Potential job roles aligned with the resume content |
+| Improvement Suggestions | Actionable recommendations for improving resume presentation |
+
+Scores and recommendations are AI-generated estimates, not guarantees of ATS acceptance, interview shortlisting, or job selection.
+
+---
+
+## 🔐 Security Best Practices
 
 - Store API keys and Django secret keys in environment variables.
-- Keep `.env` excluded through `.gitignore`.
-- Never expose API keys in JavaScript, HTML, screenshots, or public repositories.
+- Add `.env` to `.gitignore`.
+- Never expose credentials in source code, frontend files, screenshots, or public repositories.
 - Set `DEBUG=False` in production.
-- Configure `ALLOWED_HOSTS` and `CSRF_TRUSTED_ORIGINS` for the deployed domain.
-- Validate uploaded file types and file sizes.
-- Avoid logging sensitive resume contents or API credentials.
+- Configure `ALLOWED_HOSTS` and `CSRF_TRUSTED_ORIGINS` correctly.
+- Validate file types and file sizes on the server.
+- Avoid logging sensitive resume content or API credentials.
+- Rotate any credentials accidentally exposed in a public repository.
 
-## 🚀 Deployment
+---
 
-The application can be deployed to Render as a Django web service.
+## 🚀 Deployment on Render
 
-Typical configuration:
+The application can be deployed as a Django web service on Render.
 
-**Build command**
+### Build Command
 
 ```bash
 pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
 ```
 
-**Start command**
+### Start Command
 
 ```bash
 gunicorn analyzer_setting.wsgi:application
 ```
 
-Configure the required environment variables in the Render dashboard, including `DJANGO_SECRET_KEY`, `DEBUG`, `ALLOWED_HOSTS`, `CSRF_TRUSTED_ORIGINS`, and `GEMINI_API_KEY`, according to your Django settings.
+Configure the following environment variables in the Render dashboard, ensuring their names match those used by your Django settings:
 
-For production static files, configure WhiteNoise and Django's static-file settings. Review the [Render Django deployment guide](https://render.com/docs/deploy-django) before deploying.
+- `DJANGO_SECRET_KEY`
+- `DEBUG=False`
+- `ALLOWED_HOSTS`
+- `CSRF_TRUSTED_ORIGINS`
+- `GEMINI_API_KEY`
+
+Configure WhiteNoise and Django static-file settings before deployment.
+
+**Live Application:** Add your deployed Render URL here.
+
+---
 
 ## ⚠️ Limitations
 
-- Analysis quality depends on the clarity and completeness of the uploaded resume.
-- AI-generated recommendations may be incomplete or inaccurate and should be reviewed by the user.
-- The resume score and ATS score are indicative assessments, not guarantees of recruiter selection or compatibility with every ATS platform.
-- Gemini API usage is subject to the account's model availability, rate limits, and quota.
-- PDF files containing scanned images may require OCR support if they do not contain extractable text.
-- The current version is intended for resume analysis and improvement, not automated hiring decisions.
+- Analysis depends on the quality and readability of the uploaded resume.
+- Scanned PDFs may require OCR if they do not contain extractable text.
+- AI-generated feedback can be inaccurate and should be reviewed.
+- ATS scores are estimates and may not match the scoring systems used by individual employers.
+- Gemini API availability, quotas, and rate limits depend on the configured account and model.
+- Resume analysis does not guarantee job offers or interview shortlisting.
+
+---
 
 ## 🔮 Future Enhancements
 
-- Job description matching and keyword gap analysis.
-- Resume-to-job compatibility reports.
+- Job description and resume matching.
+- Keyword gap analysis.
+- Section-wise resume scoring.
 - Downloadable PDF analysis reports.
-- Resume improvement and rewriting suggestions.
+- AI-assisted resume rewriting.
 - OCR support for scanned resumes.
 - User authentication and saved analysis history.
-- Additional resume templates and export options.
-- More detailed section-wise resume scoring.
+- Resume comparison against specific job descriptions.
+- Additional reporting and visualization features.
+
+---
 
 ## 🎯 Learning Outcomes
 
-This project demonstrates practical experience with:
-
-- Django application development and URL routing.
+- Django web application development.
+- Backend request handling and URL routing.
 - File uploads and document text extraction.
-- Integration of a generative AI API.
-- Processing structured AI responses.
+- Integration with a generative AI API.
+- Structured AI response processing.
 - Frontend and backend integration.
-- Environment variable management and API-key security.
-- Version control with Git and GitHub.
-- Preparing a Python web application for cloud deployment.
+- JavaScript-based dynamic dashboard updates.
+- Environment variable and API-key management.
+- Git and GitHub version control.
+- Preparation of a Django application for cloud deployment.
+
+---
 
 ## 👨‍💻 Author
 
@@ -217,12 +364,17 @@ This project demonstrates practical experience with:
 
 Computer Science and Engineering Student | Python Developer | Full Stack Developer
 
-- GitHub: https://github.com/Mathan495
-
-## 📄 License
-
-This project is available for learning and demonstration. Add a `LICENSE` file if you want to specify formal permissions for reuse, modification, and distribution.
+- **GitHub:** https://github.com/Mathan495
+- **Project Repository:** https://github.com/Mathan495/AI-Resume-Analyzer
 
 ---
 
-⭐ If you find this project useful, consider giving the repository a star.
+## 📄 License
+
+This project is developed for educational purposes and portfolio demonstration. Add a suitable `LICENSE` file if you intend to define permissions for reuse and redistribution.
+
+---
+
+## ⭐ Support
+
+If you find this project useful, consider giving the repository a star on GitHub.
