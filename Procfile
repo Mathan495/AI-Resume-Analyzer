@@ -1,0 +1,1 @@
+web gunicorn resume_analyze.wsgi:application --log-file -

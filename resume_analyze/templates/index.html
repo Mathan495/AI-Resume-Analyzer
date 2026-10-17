@@ -1,0 +1,1095 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ResumeAI - AI Resume Analyzer</title>
+
+    <meta name="description"
+        content="Analyze your resume with AI and get actionable insights, skills analysis, ATS optimization tips and career recommendations.">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    {% csrf_token %}
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <span class="brand-icon">
+                    <i class="bi bi-file-earmark-person-fill"></i>
+                </span>
+
+                <span>
+                    Resume<span class="brand-highlight">AI</span>
+                </span>
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mainNavbar">
+
+                <i class="bi bi-list"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavbar">
+
+                <ul class="navbar-nav mx-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">
+                            How It Works
+                        </a>
+                    </li>
+
+                </ul>
+
+                <div class="d-flex align-items-center gap-3">
+
+                    <button id="themeToggle"
+                            class="theme-toggle"
+                            type="button"
+                            aria-label="Toggle theme">
+
+                        <i class="bi bi-moon-fill" id="themeIcon"></i>
+
+                    </button>
+
+                    <a href="#analyzer" class="btn btn-primary-custom">
+                        Analyze Resume
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <main id="home">
+
+        <section class="hero-section">
+
+            <div class="container">
+
+                <div class="row align-items-center g-5">
+
+                    <!-- LEFT -->
+
+                    <div class="col-lg-6">
+
+                        <div class="hero-badge">
+
+                            <span class="pulse-dot"></span>
+
+                            AI-Powered Resume Analysis
+
+                        </div>
+
+                        <h1 class="hero-title">
+
+                            Turn Your Resume Into Your
+                            <span>Career Advantage.</span>
+
+                        </h1>
+
+                        <p class="hero-description">
+
+                            Upload your resume and let AI analyze your
+                            skills, experience, strengths, weaknesses and
+                            ATS optimization opportunities.
+
+                        </p>
+
+                        <div class="hero-buttons">
+
+                            <a href="#analyzer"
+                               class="btn btn-primary-custom btn-lg">
+
+                                <i class="bi bi-stars me-2"></i>
+
+                                Analyze My Resume
+
+                            </a>
+
+                            <a href="#how-it-works"
+                               class="btn btn-outline-custom btn-lg">
+
+                                How It Works
+                                <i class="bi bi-arrow-down ms-2"></i>
+
+                            </a>
+
+                        </div>
+
+                        <div class="hero-trust">
+
+                            <div>
+                                <i class="bi bi-check-circle-fill"></i>
+                                No database required
+                            </div>
+
+                            <div>
+                                <i class="bi bi-check-circle-fill"></i>
+                                PDF & DOCX supported
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- RIGHT -->
+
+                    <div class="col-lg-6">
+
+                        <div class="hero-visual">
+
+                            <div class="floating-card floating-card-one">
+
+                                <i class="bi bi-graph-up-arrow"></i>
+
+                                <div>
+                                    <small>Resume Score</small>
+                                    <strong>86%</strong>
+                                </div>
+
+                            </div>
+
+
+                            <div class="resume-preview">
+
+                                <div class="resume-header">
+
+                                    <div class="resume-avatar">
+                                        MK
+                                    </div>
+
+                                    <div>
+
+                                        <div class="skeleton-title"></div>
+
+                                        <div class="skeleton-small"></div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="resume-line large"></div>
+
+                                <div class="resume-line"></div>
+
+                                <div class="resume-line medium"></div>
+
+
+                                <div class="resume-section-title">
+                                    Professional Summary
+                                </div>
+
+                                <div class="resume-line"></div>
+                                <div class="resume-line medium"></div>
+
+
+                                <div class="resume-section-title">
+                                    Technical Skills
+                                </div>
+
+                                <div class="skill-row">
+
+                                    <span>Python</span>
+                                    <span>Django</span>
+                                    <span>SQL</span>
+
+                                </div>
+
+
+                                <div class="skill-row">
+
+                                    <span>JavaScript</span>
+                                    <span>Git</span>
+
+                                </div>
+
+
+                                <div class="resume-section-title">
+                                    Experience
+                                </div>
+
+                                <div class="resume-line"></div>
+                                <div class="resume-line medium"></div>
+
+                            </div>
+
+
+                            <div class="floating-card floating-card-two">
+
+                                <div class="success-icon">
+                                    <i class="bi bi-check-lg"></i>
+                                </div>
+
+                                <div>
+                                    <small>AI Analysis</small>
+                                    <strong>Completed</strong>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ANALYZER ================= -->
+
+        <section id="analyzer" class="analyzer-section">
+
+            <div class="container">
+
+                <div class="section-heading text-center">
+
+                    <span class="section-label">
+                        <i class="bi bi-stars"></i>
+                        AI RESUME ANALYZER
+                    </span>
+
+                    <h2>
+                        Analyze Your Resume
+                    </h2>
+
+                    <p>
+                        Upload your resume and get intelligent
+                        career insights powered by AI.
+                    </p>
+
+                </div>
+
+
+                <div class="analyzer-card">
+
+                    <form id="resumeForm"
+                          method="POST"
+                          enctype="multipart/form-data">
+
+                        {% csrf_token %}
+
+                        <div id="uploadArea"
+                             class="upload-area">
+
+                            <input type="file"
+                                   id="resumeInput"
+                                   name="resume"
+                                   accept=".pdf,.docx"
+                                   hidden>
+
+                            <div class="upload-icon">
+
+                                <i class="bi bi-cloud-arrow-up-fill"></i>
+
+                            </div>
+
+                            <h3>
+                                Drop your resume here
+                            </h3>
+
+                            <p>
+                                or click to browse from your device
+                            </p>
+
+                            <button type="button"
+                                    id="browseBtn"
+                                    class="btn btn-outline-custom">
+
+                                <i class="bi bi-folder2-open me-2"></i>
+
+                                Choose Resume
+
+                            </button>
+
+                            <div class="upload-info">
+
+                                <span>
+                                    <i class="bi bi-file-earmark-pdf"></i>
+                                    PDF
+                                </span>
+
+                                <span>
+                                    <i class="bi bi-file-earmark-word"></i>
+                                    DOCX
+                                </span>
+
+                                <span>
+                                    <i class="bi bi-hdd"></i>
+                                    Max 5 MB
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SELECTED FILE -->
+
+                        <div id="filePreview"
+                             class="file-preview d-none">
+
+                            <div class="file-icon">
+
+                                <i class="bi bi-file-earmark-text-fill"></i>
+
+                            </div>
+
+                            <div class="file-details">
+
+                                <strong id="fileName">
+                                    Resume.pdf
+                                </strong>
+
+                                <span id="fileSize">
+                                    0 KB
+                                </span>
+
+                            </div>
+
+                            <button type="button"
+                                    id="removeFile"
+                                    class="remove-file">
+
+                                <i class="bi bi-x-lg"></i>
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- ERROR -->
+
+                        <div id="errorMessage"
+                             class="alert alert-danger d-none mt-3">
+
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+
+                            <span></span>
+
+                        </div>
+
+
+                        <!-- ANALYZE BUTTON -->
+
+                        <button id="analyzeBtn"
+                                type="submit"
+                                class="btn btn-primary-custom analyze-btn"
+                                disabled>
+
+                            <span id="buttonText">
+
+                                <i class="bi bi-stars me-2"></i>
+
+                                Analyze Resume
+
+                            </span>
+
+                            <span id="loadingText"
+                                  class="d-none">
+
+                                <span class="spinner-border spinner-border-sm me-2">
+                                </span>
+
+                                Analyzing Resume...
+
+                            </span>
+
+                        </button>
+
+                    </form>
+
+
+                    <!-- RESULT MESSAGE -->
+
+                    <div id="resultMessage"
+                         class="result-message d-none">
+
+                        <div class="result-icon">
+
+                            <i class="bi bi-check-lg"></i>
+
+                        </div>
+
+                        <div>
+
+                            <h5>Resume processed successfully</h5>
+                            <!-- ============================= -->
+                            <!-- AI ANALYSIS RESULTS -->
+                            <!-- ============================= -->
+
+                            <div id="analysisResults" class="analysis-results d-none">
+
+                                <!-- Results Header -->
+                                <div class="results-header">
+
+                                    <div>
+                                        <span class="results-label">
+                                            AI ANALYSIS
+                                        </span>
+
+                                        <h2>
+                                            Your Resume Analysis
+                                        </h2>
+
+                                        <p>
+                                            AI-powered insights to improve your resume,
+                                            ATS compatibility, skills and job opportunities.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+
+                                <!-- ============================= -->
+                                <!-- SCORE CARDS -->
+                                <!-- ============================= -->
+
+                                <div class="row g-4 mb-4">
+
+                                    <!-- Resume Score -->
+                                    <div class="col-md-6">
+
+                                        <div class="score-card">
+
+                                            <div class="score-icon">
+                                                <i class="bi bi-file-earmark-check"></i>
+                                            </div>
+
+                                            <div class="score-content">
+
+                                                <span class="score-label">
+                                                    Resume Score
+                                                </span>
+
+                                                <h3>
+                                                    <span id="resumeScore">0</span>
+                                                    <small>/100</small>
+                                                </h3>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- ATS Score -->
+                                    <div class="col-md-6">
+
+                                        <div class="score-card">
+
+                                            <div class="score-icon">
+                                                <i class="bi bi-robot"></i>
+                                            </div>
+
+                                            <div class="score-content">
+
+                                                <span class="score-label">
+                                                    ATS Score
+                                                </span>
+
+                                                <h3>
+                                                    <span id="atsScore">0</span>
+                                                    <small>/100</small>
+                                                </h3>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- ============================= -->
+                                <!-- PROFESSIONAL SUMMARY -->
+                                <!-- ============================= -->
+
+                                <div class="result-card">
+
+                                    <div class="result-card-title">
+
+                                        <div class="result-title-icon">
+                                            <i class="bi bi-person-badge"></i>
+                                        </div>
+
+                                        <h3>
+                                            Professional Summary
+                                        </h3>
+
+                                    </div>
+
+                                    <p id="professionalSummary">
+                                    </p>
+
+                                </div>
+
+
+                                <!-- ============================= -->
+                                <!-- TECHNICAL SKILLS -->
+                                <!-- ============================= -->
+
+                                <div class="result-card">
+
+                                    <div class="result-card-title">
+
+                                        <div class="result-title-icon">
+                                            <i class="bi bi-code-slash"></i>
+                                        </div>
+
+                                        <h3>
+                                            Technical Skills
+                                        </h3>
+
+                                    </div>
+
+                                    <div id="technicalSkills"
+                                        class="skill-list">
+                                    </div>
+
+                                </div>
+
+
+                                <!-- ============================= -->
+                                <!-- SOFT SKILLS -->
+                                <!-- ============================= -->
+
+                                <div class="result-card">
+
+                                    <div class="result-card-title">
+
+                                        <div class="result-title-icon">
+                                            <i class="bi bi-people"></i>
+                                        </div>
+
+                                        <h3>
+                                            Soft Skills
+                                        </h3>
+
+                                    </div>
+
+                                    <div id="softSkills"
+                                        class="skill-list">
+                                    </div>
+
+                                </div>
+
+
+                                <!-- ============================= -->
+                                <!-- STRENGTHS & WEAKNESSES -->
+                                <!-- ============================= -->
+
+                                <div class="row g-4">
+
+
+                                    <!-- Strengths -->
+
+                                    <div class="col-lg-6">
+
+                                        <div class="result-card h-100">
+
+                                            <div class="result-card-title">
+
+                                                <div class="result-title-icon success-icon">
+                                                    <i class="bi bi-check-circle"></i>
+                                                </div>
+
+                                                <h3>
+                                                    Key Strengths
+                                                </h3>
+
+                                            </div>
+
+                                            <ul id="strengthsList">
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <!-- Weaknesses -->
+
+                                    <div class="col-lg-6">
+
+                                        <div class="result-card h-100">
+
+                                            <div class="result-card-title">
+
+                                                <div class="result-title-icon warning-icon">
+                                                    <i class="bi bi-exclamation-circle"></i>
+                                                </div>
+
+                                                <h3>
+                                                    Areas to Improve
+                                                </h3>
+
+                                            </div>
+
+                                            <ul id="weaknessesList">
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- ============================= -->
+                                <!-- MISSING SKILLS -->
+                                <!-- ============================= -->
+
+                                <div class="result-card">
+
+                                    <div class="result-card-title">
+
+                                        <div class="result-title-icon">
+                                            <i class="bi bi-lightbulb"></i>
+                                        </div>
+
+                                        <h3>
+                                            Recommended Skills
+                                        </h3>
+
+                                    </div>
+
+                                    <div id="missingSkills"
+                                        class="skill-list">
+                                    </div>
+
+                                </div>
+
+
+                                <!-- ============================= -->
+                                <!-- RECOMMENDED JOB ROLES -->
+                                <!-- ============================= -->
+
+                                <div class="result-card">
+
+                                    <div class="result-card-title">
+
+                                        <div class="result-title-icon">
+                                            <i class="bi bi-briefcase"></i>
+                                        </div>
+
+                                        <h3>
+                                            Recommended Job Roles
+                                        </h3>
+
+                                    </div>
+
+                                    <div id="recommendedRoles"
+                                        class="skill-list">
+                                    </div>
+
+                                </div>
+
+
+                                <!-- ============================= -->
+                                <!-- ATS SUGGESTIONS -->
+                                <!-- ============================= -->
+
+                                <div class="result-card">
+
+                                    <div class="result-card-title">
+
+                                        <div class="result-title-icon">
+                                            <i class="bi bi-search"></i>
+                                        </div>
+
+                                        <h3>
+                                            ATS Optimization
+                                        </h3>
+
+                                    </div>
+
+                                    <ul id="atsSuggestions">
+                                    </ul>
+
+                                </div>
+
+
+                                <!-- ============================= -->
+                                <!-- IMPROVEMENT SUGGESTIONS -->
+                                <!-- ============================= -->
+
+                                <div class="result-card">
+
+                                    <div class="result-card-title">
+
+                                        <div class="result-title-icon">
+                                            <i class="bi bi-stars"></i>
+                                        </div>
+
+                                        <h3>
+                                            AI Improvement Suggestions
+                                        </h3>
+
+                                    </div>
+
+                                    <ul id="improvementSuggestions">
+                                    </ul>
+
+                                </div>
+
+
+                                <!-- Analyze Another Resume -->
+
+                                <div class="analyze-again">
+
+                                    <button
+                                        type="button"
+                                        class="btn btn-primary"
+                                        onclick="window.scrollTo({
+                                            top: document.getElementById('analyzer').offsetTop,
+                                            behavior: 'smooth'
+                                        })">
+
+                                        <i class="bi bi-arrow-repeat"></i>
+
+                                        Analyze Another Resume
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <p id="resultText">
+                                Your resume has been analyzed.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= FEATURES ================= -->
+
+        <section id="features"
+                 class="features-section">
+
+            <div class="container">
+
+                <div class="section-heading text-center">
+
+                    <span class="section-label">
+                        WHY RESUMEAI
+                    </span>
+
+                    <h2>
+                        Understand Your Resume Better
+                    </h2>
+
+                    <p>
+                        Get useful insights instead of simply uploading
+                        your resume to another platform.
+                    </p>
+
+                </div>
+
+
+                <div class="row g-4">
+
+                    <div class="col-md-6 col-lg-3">
+
+                        <div class="feature-card">
+
+                            <div class="feature-icon">
+                                <i class="bi bi-bar-chart-fill"></i>
+                            </div>
+
+                            <h4>Resume Score</h4>
+
+                            <p>
+                                Understand how strong your resume is
+                                and identify areas that need improvement.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6 col-lg-3">
+
+                        <div class="feature-card">
+
+                            <div class="feature-icon">
+                                <i class="bi bi-code-slash"></i>
+                            </div>
+
+                            <h4>Skill Analysis</h4>
+
+                            <p>
+                                Identify your technical skills and
+                                discover important missing skills.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6 col-lg-3">
+
+                        <div class="feature-card">
+
+                            <div class="feature-icon">
+                                <i class="bi bi-search"></i>
+                            </div>
+
+                            <h4>ATS Insights</h4>
+
+                            <p>
+                                Find resume improvements that can help
+                                make your profile more ATS-friendly.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6 col-lg-3">
+
+                        <div class="feature-card">
+
+                            <div class="feature-icon">
+                                <i class="bi bi-lightbulb-fill"></i>
+                            </div>
+
+                            <h4>AI Suggestions</h4>
+
+                            <p>
+                                Receive practical recommendations to
+                                improve your resume and career profile.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= HOW IT WORKS ================= -->
+
+        <section id="how-it-works"
+                 class="how-section">
+
+            <div class="container">
+
+                <div class="section-heading text-center">
+
+                    <span class="section-label">
+                        SIMPLE PROCESS
+                    </span>
+
+                    <h2>
+                        How It Works
+                    </h2>
+
+                    <p>
+                        Analyze your resume in three simple steps.
+                    </p>
+
+                </div>
+
+
+                <div class="row g-4">
+
+                    <div class="col-md-4">
+
+                        <div class="step-card">
+
+                            <div class="step-number">
+                                01
+                            </div>
+
+                            <div class="step-icon">
+                                <i class="bi bi-upload"></i>
+                            </div>
+
+                            <h4>Upload</h4>
+
+                            <p>
+                                Upload your PDF or DOCX resume securely
+                                through the analyzer.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <div class="step-card">
+
+                            <div class="step-number">
+                                02
+                            </div>
+
+                            <div class="step-icon">
+                                <i class="bi bi-stars"></i>
+                            </div>
+
+                            <h4>AI Analysis</h4>
+
+                            <p>
+                                AI processes your resume and extracts
+                                important career information.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+                        <div class="step-card">
+
+                            <div class="step-number">
+                                03
+                            </div>
+
+                            <div class="step-icon">
+                                <i class="bi bi-clipboard2-check"></i>
+                            </div>
+
+                            <h4>Get Insights</h4>
+
+                            <p>
+                                Receive resume scores, skills analysis
+                                and improvement recommendations.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-content">
+
+                <div>
+
+                    <a class="footer-brand" href="#">
+                        <i class="bi bi-file-earmark-person-fill"></i>
+                        Resume<span>AI</span>
+                    </a>
+
+                    <p>
+                        An AI-powered resume analysis platform
+                        built for modern job seekers.
+                    </p>
+
+                </div>
+
+                <div class="footer-right">
+
+                    <span>
+                        Built with
+                        <strong>Django</strong> &
+                        <strong>Gemini AI</strong>
+                    </span>
+
+                    <span>
+                        © 2026 ResumeAI
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <!-- Custom JS -->
+
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+
+</html>
